@@ -1,19 +1,35 @@
 version: '2'
-
 services:
-    upsource:
-        build: .
-        image: esycat/upsource
-        container_name: upsource
-        restart: always
-        ports:
-            - 8083:8080
-        volumes:
-            - /etc/localtime:/etc/localtime:ro
-            - /etc/timezone:/etc/timezone:ro
-            - /data/upsource:/var/lib/upsource
-            - /data/upsource/conf:/opt/upsource/conf
-        ulimits:
-            memlock: -1
-            nofile: 100000
-            nproc: 32768
+  hub:
+    image: sandinh/jetbrains-hub
+    restart: unless-stopped
+# mkdir -p -m 750 /media/disk2/hub/data /media/disk2/hub/conf
+# chown -R 500:500 /media/disk2/hub/data /media/disk2/hub/conf
+    volumes:
+    - /etc/localtime:/etc/localtime:ro
+    - /etc/timezone:/etc/timezone:ro
+    - /media/disk2/hub/data:/opt/hub/data
+    - /media/disk2/hub/conf:/opt/hub/conf
+  upsource:
+    image: sandinh/upsource
+    restart: unless-stopped
+    ulimits:
+      memlock:
+        hard: -1
+        soft: -1
+      nproc:
+        hard: 32768
+        soft: 32768
+      nofile:
+        hard: 100000
+        soft: 100000
+# mkdir -p -m 750 /media/disk2/upsource/data /media/disk2/upsource/conf /media/disk2/upsource/logs /media/disk2/upsource/backups
+# chown -R 500:500 /media/disk2/upsource/data /media/disk2/upsource/conf /media/disk2/upsource/logs /media/disk2/upsource/backups
+    volumes:
+    - /etc/localtime:/etc/localtime:ro
+    - /etc/timezone:/etc/timezone:ro
+    - /media/disk2/upsource/data:/opt/upsource/data
+    - /media/disk2/upsource/conf:/opt/upsource/conf
+    - /media/disk2/upsource/logs:/opt/upsource/logs
+    - /media/disk2/upsource/backups:/opt/upsource/backups
+

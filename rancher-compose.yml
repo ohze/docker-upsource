@@ -1,0 +1,8 @@
+version: '2'
+services:
+  hub:
+    scale: 1
+    start_on_create: true
+  upsource:
+    scale: 1
+    start_on_create: true
