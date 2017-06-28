@@ -16,7 +16,7 @@ RUN apk add --no-cache --update-cache --repository="http://dl-cdn.alpinelinux.or
     apk del .build-deps && \
     mkdir -p /opt && cd /opt && \
     wget -qO upsource.zip https://download.jetbrains.com/upsource/upsource-${APP_VERSION}.${APP_BUILD}.zip && \
-    unzip -q upsource.zip -x */internal/java/* && \
+    unzip -q upsource.zip -x */internal/java/* */apps/hub/* && \
     mv upsource-${APP_VERSION}.${APP_BUILD} upsource && \
     chown -R upsource:upsource /opt/upsource && \
     rm upsource.zip
