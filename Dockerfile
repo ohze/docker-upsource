@@ -14,7 +14,7 @@ RUN apk add --no-cache --update-cache --repository="http://dl-cdn.alpinelinux.or
 # removing build dependencies
     apk add -q --no-cache --virtual .build-deps wget unzip && \
     apk del .build-deps && \
-    cd /opt && \
+    mkdir -p /opt && cd /opt && \
     wget -qO upsource.zip https://download.jetbrains.com/upsource/upsource-${APP_VERSION}.${APP_BUILD}.zip && \
     unzip -q upsource.zip -x */internal/java/* && \
     mv upsource-${APP_VERSION}.${APP_BUILD} upsource && \
