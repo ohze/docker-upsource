@@ -13,13 +13,13 @@ RUN apk add --no-cache --update-cache --repository="http://dl-cdn.alpinelinux.or
 # downloading and unpacking the distribution, changing file permissions, removing bundled JVMs,
 # removing build dependencies
     apk add -q --no-cache --virtual .build-deps wget unzip && \
-    apk del .build-deps && \
     mkdir -p /opt && cd /opt && \
     wget -qO hub.zip https://download.jetbrains.com/hub/${APP_VERSION}/hub-ring-bundle-${APP_VERSION}.${APP_BUILD}.zip && \
     unzip -q hub.zip -x */internal/java/* && \
     mv hub-ring-bundle-${APP_VERSION}.${APP_BUILD} hub && \
     chown -R hub:hub /opt/hub && \
-    rm hub.zip
+    rm hub.zip && \
+    apk del .build-deps
 
 USER hub
 WORKDIR /opt/hub

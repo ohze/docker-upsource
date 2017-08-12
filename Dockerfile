@@ -13,13 +13,13 @@ RUN apk add --no-cache --update-cache --repository="http://dl-cdn.alpinelinux.or
 # downloading and unpacking the distribution, changing file permissions, removing bundled JVMs,
 # removing build dependencies
     apk add -q --no-cache --virtual .build-deps wget unzip && \
-    apk del .build-deps && \
     mkdir -p /opt && cd /opt && \
     wget -qO upsource.zip https://download.jetbrains.com/upsource/upsource-${APP_VERSION}.${APP_BUILD}.zip && \
     unzip -q upsource.zip -x */internal/java/* */apps/hub/* && \
     mv upsource-${APP_VERSION}.${APP_BUILD} upsource && \
     chown -R upsource:upsource /opt/upsource && \
-    rm upsource.zip
+    rm upsource.zip && \
+    apk del .build-deps
 
 USER upsource
 WORKDIR /opt/upsource
