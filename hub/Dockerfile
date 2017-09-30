@@ -1,6 +1,6 @@
 FROM azul/zulu-openjdk-alpine:8
 
-MAINTAINER "thanhbv" <thanhbv@sandinh.net>
+LABEL maintainer="thanhbv@sandinh.net"
 
 ARG APP_VERSION=2017.3
 ARG APP_BUILD=6757
