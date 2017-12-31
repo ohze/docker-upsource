@@ -4,8 +4,8 @@ The image has been reworked to use Alpine instead of Ubuntu. As a consequence, t
 # Upsource
 [Upsource](https://jetbrains.com/upsource/) is a repository browsing and code review tool from [JetBrains](https://jetbrains.com/).
 
-Upsource version `2017.2`, build `2398` (Released: October 12, 2017).
-Hub version `2017.3`, build `7461` (Released: October 5, 2017)
+Upsource version `2017.3`, build `2593` (Released: December 12, 2017).
+Hub version `2017.4`, build `8220` (Released: December 28, 2017)
 
 The image is based on [Alpine with OpenJDK 8](https://hub.docker.com/r/azul/zulu-openjdk-alpine/).
 

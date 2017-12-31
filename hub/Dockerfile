@@ -2,8 +2,8 @@ FROM azul/zulu-openjdk-alpine:8
 
 LABEL maintainer="thanhbv@sandinh.net"
 
-ARG APP_VERSION=2017.3
-ARG APP_BUILD=7461
+ARG APP_VERSION=2017.4
+ARG APP_BUILD=8220
 
 # preparing user+group
 RUN apk add --no-cache --update-cache --repository="http://dl-cdn.alpinelinux.org/alpine/edge/community/" \
